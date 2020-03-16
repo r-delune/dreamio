@@ -15,11 +15,6 @@ export default {
     ]
   },
   
-  // router: {
-  //   base: '/clairedillon/'
-  // },
-
-  //http://r-delune.github.io/clairedillon
   /*
   ** Customize the progress-bar color
   */
