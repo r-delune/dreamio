@@ -1,4 +1,3 @@
-
 export default {
   mode: 'spa',
   /*
@@ -16,9 +15,9 @@ export default {
     ]
   },
   
-  router: {
-    base: '/clairedillon/'
-  },
+  // router: {
+  //   base: '/clairedillon/'
+  // },
 
   //http://r-delune.github.io/clairedillon
   /*
