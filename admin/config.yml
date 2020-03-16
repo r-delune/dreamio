@@ -1,7 +1,6 @@
 backend:
-  name: test
-media_folder: resources/nuxt/static/images
-public_folder: /images
+  name: git-gateway
+  branch: master
 
 collections:
 
