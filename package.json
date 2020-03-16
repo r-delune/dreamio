@@ -2,7 +2,7 @@
   "name": "clairedillon",
   "version": "1.0.0",
   "description": "clairedillon.ie",
-  "author": "Bri",
+  "author": "Brian Dillon, Claire Dillon",
   "private": true,
   "scripts": {
     "dev": "nuxt",

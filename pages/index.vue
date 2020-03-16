@@ -3,25 +3,25 @@
     <div>
       <logo />
       <h1 class="title">
-        clairedillon
+        clairedillon.ie
       </h1>
       <h2 class="subtitle">
-        clairedillon.ie
+        feed me ideas
       </h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
+          href="https://threejs.org/"
           target="_blank"
           class="button--green"
         >
-          Documentation
+          some cool shit here
         </a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://greensock.com/"
           target="_blank"
           class="button--grey"
         >
-          GitHub
+          and here
         </a>
       </div>
     </div>
