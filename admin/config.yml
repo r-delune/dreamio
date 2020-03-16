@@ -1,0 +1,683 @@
+backend:
+  name: gitlab
+  repo: rdelune/miuse-application # Path to your GitLab repository
+  auth_type: implicit # Required for implicit grant
+  app_id: d26e888be04d9f3596d2d4e5ba0a58d6b04440813a1781927d9de4e6884875fa # Application ID from your GitLab settings
+
+media_folder: resources/nuxt/static/images
+public_folder: /images
+
+collections:
+
+  #
+  # GENERAL PAGES #######################################################
+  #
+  - label: 'General'
+    name: 'general'
+    format: 'json'
+    delete: false
+    files:
+      - label: 'Home'
+        name: 'home'
+        file: 'resources/nuxt/assets/content/home.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Register Button', name: 'btn_register', widget: 'string' }
+          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
+      - label: 'Register'
+        name: 'register'
+        file: 'resources/nuxt/assets/content/register.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
+          - { label: 'Copied Message', name: 'copy', widget: 'markdown' }
+          - { label: 'Saved Message', name: 'save', widget: 'markdown' }
+          - { label: 'Copy Button', name: 'btn_copy', widget: 'string' }
+          - { label: 'Save Button', name: 'btn_save', widget: 'string' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
+      - label: 'Login'
+        name: 'login'
+        file: 'resources/nuxt/assets/content/login.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
+          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
+          - { label: 'Cancel Button', name: 'btn_cancel', widget: 'string' }
+      - label: 'Activities'
+        name: 'activities'
+        file: 'resources/nuxt/assets/content/activities.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Drug Use', name: 'drugs', widget: 'string' }
+          - { label: 'Behavioural Awareness', name: 'awareness', widget: 'string' }
+          - { label: 'Relationship Assessment', name: 'relationships', widget: 'string' }
+          - { label: 'Goals and Committed Actions', name: 'goals', widget: 'string' }
+          - { label: 'Social Norms', name: 'social', widget: 'string' }
+          - { label: 'Overall Personalized feedback ', name: 'review', widget: 'string' }
+      - label: 'About'
+        name: 'about'
+        file: 'resources/nuxt/assets/content/about.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
+      - label: 'Support'
+        name: 'support'
+        file: 'resources/nuxt/assets/content/support.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
+
+  #
+  # DRUGS ACTIVITY #######################################################
+  #
+  - label: 'Drugs'
+    name: 'drugs'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'resources/nuxt/assets/content/drugs/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'resources/nuxt/assets/content/drugs/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Category'
+                name: 'category'
+                widget: 'select'
+                default: 'dast'
+                options:
+                  - { label: 'DAST-10', value: 'dast' }
+                  - { label: 'Drug Types', value: 'drugs' }
+                  - { label: 'Primary Drug', value: 'primary' }
+                  - { label: 'Comment', value: 'comment' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string' }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+          - label: 'Next Button'
+            name: 'btn_next'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+
+      - label: 'Feedback - Non User'
+        name: 'non-user'
+        file: 'resources/nuxt/assets/content/drugs/feedback/non-user.json'
+        identifier_field: 'type'
+        fields:
+          - label: 'Score'
+            name: 'score'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Intro', name: 'intro', widget: 'markdown' }
+              - { label: 'Video URL', name: 'video', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Next Button'
+            name: 'btn_next'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+
+      - label: 'Feedback - Risky User'
+        name: 'risky-user'
+        file: 'resources/nuxt/assets/content/drugs/feedback/risky-user.json'
+        identifier_field: 'type'
+        fields:
+          - label: 'Score'
+            name: 'score'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Intro', name: 'intro', widget: 'markdown' }
+              - { label: 'Video URL', name: 'video', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'DAST-10'
+            name: 'dast10'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - { label: 'Q2', name: 'q2', widget: 'markdown', required: false }
+              - { label: 'Q3', name: 'q3', widget: 'markdown', required: false }
+              - { label: 'Q4', name: 'q4', widget: 'markdown', required: false }
+              - { label: 'Q5', name: 'q5', widget: 'markdown', required: false }
+              - { label: 'Q6', name: 'q6', widget: 'markdown', required: false }
+              - { label: 'Q7', name: 'q7', widget: 'markdown', required: false }
+              - { label: 'Q8', name: 'q8', widget: 'markdown', required: false }
+              - { label: 'Q9', name: 'q9', widget: 'markdown', required: false }
+              - { label: 'Q10', name: 'q10', widget: 'markdown', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Risks'
+            name: 'risks'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Risk Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Positives'
+            name: 'positives'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Positive Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string', required: false }
+              - label: 'Other Option'
+                name: 'other'
+                widget: 'object'
+                fields:
+                  - { label: 'Checkbox Label', name: 'checkbox', widget: 'string', required: false }
+                  - { label: 'Text Field Label', name: 'textfield', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Negatives'
+            name: 'negatives'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Negative Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string', required: false }
+              - label: 'Other Option'
+                name: 'other'
+                widget: 'object'
+                fields:
+                  - { label: 'Checkbox Label', name: 'checkbox', widget: 'string', required: false }
+                  - { label: 'Text Field Label', name: 'textfield', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Motivations'
+            name: 'motivations'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Conclusion'
+            name: 'conclusion'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+          - label: 'Back Button'
+            name: 'btn_back'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+          - label: 'Next Button'
+            name: 'btn_next'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+          - label: 'Print Button'
+            name: 'btn_print'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+
+      - label: 'Feedback - Harmful User'
+        name: 'harmful-user'
+        file: 'resources/nuxt/assets/content/drugs/feedback/harmful-user.json'
+        identifier_field: 'type'
+        fields:
+          - label: 'Score'
+            name: 'score'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Intro', name: 'intro', widget: 'markdown' }
+              - { label: 'Video URL', name: 'video', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'DAST-10'
+            name: 'dast10'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - { label: 'Q2', name: 'q2', widget: 'markdown', required: false }
+              - { label: 'Q3', name: 'q3', widget: 'markdown', required: false }
+              - { label: 'Q4', name: 'q4', widget: 'markdown', required: false }
+              - { label: 'Q5', name: 'q5', widget: 'markdown', required: false }
+              - { label: 'Q6', name: 'q6', widget: 'markdown', required: false }
+              - { label: 'Q7', name: 'q7', widget: 'markdown', required: false }
+              - { label: 'Q8', name: 'q8', widget: 'markdown', required: false }
+              - { label: 'Q9', name: 'q9', widget: 'markdown', required: false }
+              - { label: 'Q10', name: 'q10', widget: 'markdown', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Risks'
+            name: 'risks'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Risk Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Positives'
+            name: 'positives'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Positive Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string', required: false }
+              - label: 'Other Option'
+                name: 'other'
+                widget: 'object'
+                fields:
+                  - { label: 'Checkbox Label', name: 'checkbox', widget: 'string', required: false }
+                  - { label: 'Text Field Label', name: 'textfield', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Negatives'
+            name: 'negatives'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Negative Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string', required: false }
+              - label: 'Other Option'
+                name: 'other'
+                widget: 'object'
+                fields:
+                  - { label: 'Checkbox Label', name: 'checkbox', widget: 'string', required: false }
+                  - { label: 'Text Field Label', name: 'textfield', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Motivations'
+            name: 'motivations'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Conclusion'
+            name: 'conclusion'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+          - label: 'Back Button'
+            name: 'btn_back'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+          - label: 'Next Button'
+            name: 'btn_next'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+          - label: 'Print Button'
+            name: 'btn_print'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+
+      - label: 'Feedback - Severe User'
+        name: 'severe-user'
+        file: 'resources/nuxt/assets/content/drugs/feedback/severe-user.json'
+        identifier_field: 'type'
+        fields:
+          - label: 'Score'
+            name: 'score'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Intro', name: 'intro', widget: 'markdown' }
+              - { label: 'Video URL', name: 'video', widget: 'string', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'DAST-10'
+            name: 'dast10'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Intro', name: 'intro', widget: 'markdown', required: false }
+              - { label: 'Q2', name: 'q2', widget: 'markdown', required: false }
+              - { label: 'Q3', name: 'q3', widget: 'markdown', required: false }
+              - { label: 'Q4', name: 'q4', widget: 'markdown', required: false }
+              - { label: 'Q5', name: 'q5', widget: 'markdown', required: false }
+              - { label: 'Q6', name: 'q6', widget: 'markdown', required: false }
+              - { label: 'Q7', name: 'q7', widget: 'markdown', required: false }
+              - { label: 'Q8', name: 'q8', widget: 'markdown', required: false }
+              - { label: 'Q9', name: 'q9', widget: 'markdown', required: false }
+              - { label: 'Q10', name: 'q10', widget: 'markdown', required: false }
+              - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - label: 'Conclusion'
+            name: 'conclusion'
+            widget: 'object'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string', required: false }
+              - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+          - label: 'Support Button'
+            name: 'btn_support'
+            widget: 'object'
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', required: false }
+
+  #
+  # SOCIAL ACTIVITY #######################################################
+  #
+  - label: 'Social'
+    name: 'social'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'resources/nuxt/assets/content/social/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'resources/nuxt/assets/content/social/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Form Type'
+                name: 'form_type'
+                widget: 'select'
+                default: 'button'
+                options:
+                  - { label: 'Button', value: 'button' }
+                  - { label: 'Slider', value: 'slider' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Feedback'
+        name: 'aware'
+        file: 'resources/nuxt/assets/content/social/feedback/feedback.json'
+        identifier_field: 'type'
+        format: 'json'
+        create: true
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - { label: 'Score', name: 'score', widget: 'markdown' }
+          - { label: 'Outro', name: 'outro', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Print Button', name: 'btn_print', widget: 'string' }
+
+  #
+  # AWARENESS ACTIVITY #######################################################
+  #
+  - label: 'Awareness'
+    name: 'awareness'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'resources/nuxt/assets/content/awareness/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'resources/nuxt/assets/content/awareness/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string' }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+
+      - label: 'Feedback - Aware'
+        name: 'aware'
+        file: 'resources/nuxt/assets/content/awareness/feedback/aware.json'
+        identifier_field: 'type'
+        format: 'json'
+        create: true
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - { label: 'Score', name: 'score', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Print Button', name: 'btn_print', widget: 'string' }
+
+      - label: 'Feedback - Not Aware'
+        name: 'not-aware'
+        file: 'resources/nuxt/assets/content/awareness/feedback/not-aware.json'
+        identifier_field: 'type'
+        format: 'json'
+        create: true
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - { label: 'Score', name: 'score', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Print Button', name: 'btn_print', widget: 'string' }
+
+  #
+  # RELATIONSHIPS ACTIVITY #######################################################
+  #
+  - label: 'Relationships'
+    name: 'relationships'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'resources/nuxt/assets/content/relationships/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'resources/nuxt/assets/content/relationships/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string' }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+
+      - label: 'Feedback'
+        name: 'aware'
+        file: 'resources/nuxt/assets/content/relationships/feedback/feedback.json'
+        identifier_field: 'type'
+        format: 'json'
+        create: true
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - { label: 'Score', name: 'score', widget: 'markdown' }
+          - { label: 'Outro', name: 'outro', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Print Button', name: 'btn_print', widget: 'string' }
+
+  #
+  # GOALS ACTIVITY #######################################################
+  #
+  - label: 'Goals'
+    name: 'goals'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'resources/nuxt/assets/content/goals/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'resources/nuxt/assets/content/goals/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', required: false }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Feedback'
+        name: 'aware'
+        file: 'resources/nuxt/assets/content/goals/feedback/feedback.json'
+        identifier_field: 'type'
+        format: 'json'
+        create: true
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - { label: 'Score', name: 'score', widget: 'markdown', required: false }
+          - { label: 'Outro', name: 'outro', widget: 'markdown', required: false }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Print Button', name: 'btn_print', widget: 'string' }
+
+  #
+  # REVIEW ACTIVITY #######################################################
+  #
+  - label: 'Review'
+    name: 'review'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'resources/nuxt/assets/content/review/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'resources/nuxt/assets/content/review/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string' }
+                  - { label: 'Value', name: 'value', widget: 'string' }
+
+      - label: 'Feedback'
+        name: 'aware'
+        file: 'resources/nuxt/assets/content/review/feedback/feedback.json'
+        identifier_field: 'type'
+        format: 'json'
+        create: true
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - { label: 'Score', name: 'score', widget: 'markdown' }
+          - { label: 'Outro', name: 'outro', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Print Button', name: 'btn_print', widget: 'string' }
