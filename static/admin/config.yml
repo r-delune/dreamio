@@ -1,19 +1,21 @@
 backend:
-  name: test
+  name: git-gateway
   branch: master
 
-media_folder: resources/nuxt/static/images
-public_folder: /images
-
 collections:
-  - label: 'General'
-    name: 'general'
+  #
+  # GENERAL PAGES #######################################################
+  #
+  - label: 'Home Page'
+    name: 'home'
     format: 'json'
     delete: false
     files:
       - label: 'Home'
         name: 'home'
-        file: 'resources/nuxt/assets/content/home.json'
+        file: 'resources/nuxt/assets/content/index.json'
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Intro', name: 'intro', widget: 'string' }
+          - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+          - { label: 'Link_1', name: 'link_1', widget: 'string' }
+          - { label: 'Link_2', name: 'link_2', widget: 'string' }
