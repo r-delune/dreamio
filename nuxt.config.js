@@ -15,6 +15,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: {
+    base: '/clairedillon/'
+  },
   /*
   ** Customize the progress-bar color
   */
