@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -15,9 +15,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  mode: 'spa',
+  
   router: {
-    base: '/dist/'
+    base: '/clairedillon.ie/'
   },
 
   //http://r-delune.github.io/clairedillon
