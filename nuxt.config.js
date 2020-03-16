@@ -16,7 +16,7 @@ export default {
     ]
   },
   router: {
-    base: '/clairedillon/'
+    base: '/clairedillon'
   },
   /*
   ** Customize the progress-bar color
