@@ -3,10 +3,10 @@
     <div>
       <logo />
       <h1 class="title">
-        clairedillon.ie
+        {{ content.intro.text }}
       </h1>
       <h2 class="subtitle">
-        feed me ideas
+        {{ content.subtitle.text }}
       </h2>
       <div class="links">
         <a
@@ -14,14 +14,14 @@
           target="_blank"
           class="button--green"
         >
-          some cool shit here
+          {{ content.link_1.text }}
         </a>
         <a
           href="https://greensock.com/"
           target="_blank"
           class="button--grey"
         >
-          and here
+          {{ content.link_2.text }}
         </a>
       </div>
     </div>
@@ -30,6 +30,7 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import { mapState } from 'vuex';
 export default {
   head() {
     return {
@@ -38,7 +39,13 @@ export default {
   },
   components: {
     Logo
-  }
+  },
+  computed: {
+    content () {
+      return this.$store.state.home.data
+  },
+  ...mapState('auth', ['loggedIn', 'user'])
+  },
 };
 </script>
 
