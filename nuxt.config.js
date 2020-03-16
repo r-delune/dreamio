@@ -15,9 +15,12 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  mode: 'spa',
   router: {
-    base: '/clairedillon'
+     base: '/clairedillon/'
   },
+
+  //http://r-delune.github.io/clairedillon
   /*
   ** Customize the progress-bar color
   */
