@@ -17,7 +17,7 @@ export default {
   },
   
   router: {
-    base: '/clairedillon.ie/'
+    base: '/clairedillon/'
   },
 
   //http://r-delune.github.io/clairedillon
