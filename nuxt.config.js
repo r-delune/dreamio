@@ -24,7 +24,8 @@ export default {
 
   modules: [
     '@nuxtjs/markdownit',
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
+    '@nuxtjs/bootstrap-vue'
   ],
   markdownit: {
     injected: true
