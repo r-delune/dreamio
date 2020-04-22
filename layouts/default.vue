@@ -4,8 +4,8 @@
           class="top-navbar flex flex-row align-center p-2 fixed w-full"
           style="z-index: 9001;"
           >
-          <div class="flex-grow">
-            <!-- <router-link :to="{ name: 'Contact' }"> -->
+          <!-- <div class="flex-grow">
+            
                 <a
                   href="https://threejs.org/"
                   target="_blank"
@@ -13,8 +13,8 @@
                 >
                 Some cool shit here
               </a>
-            <!-- </router-link> -->
-          </div>
+            
+          </div> -->
           <!-- <div class="flex-grow">
             <router-link :to="{ name: 'About' }">
               About
