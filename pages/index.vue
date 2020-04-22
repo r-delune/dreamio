@@ -33,6 +33,7 @@
   </div>
 </template>
 <script>
+let pwaPrompt;
 import Logo from '~/components/Logo.vue'
 import { mapState } from 'vuex';
 export default {
@@ -48,13 +49,38 @@ export default {
   layout: 'default',
   components: {
     Logo
-  },
+  }, 
   computed: {
     content () {
       return this.$store.state.home.data
+    },
+    ...mapState('auth', ['loggedIn', 'user'])
   },
-  ...mapState('auth', ['loggedIn', 'user'])
+  methods: {
+    // prompt will inform the user that PWA is available
+    doPrompt() {
+      pwaPrompt.prompt();
+      pwaPrompt.userChoice.then(function(choiceResult) {
+        pwaPrompt = null;
+      });
+    }
   },
+  mounted () {
+      console.log('COS')
+    	this.$nextTick(() => {
+			const pwaBtn = document.querySelector("#pwa-button");
+			window.addEventListener("beforeinstallprompt", function(e) {
+				console.log("before install promt");
+				e.preventDefault();
+				pwaPrompt = e;
+				showBtn();
+			});
+			function showBtn() {
+				console.log("showing PWA button");
+				pwaBtn.style.display = "block";
+			}
+		});
+  }
 };
 </script>
 

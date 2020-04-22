@@ -15,8 +15,16 @@ export default {
     ]
   },
 
+  manifest: {
+    name: 'Nuxt.js PWA survival store',
+    short_name: 'Nuxt.js PWA',
+    lang: 'en',
+    display: 'standalone',
+  },
+
   modules: [
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    "@nuxtjs/pwa"
   ],
   markdownit: {
     injected: true

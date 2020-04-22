@@ -35,23 +35,17 @@ collections:
           - { label: 'Subtitle', name: 'subtitle', widget: 'markdown' }
           - { label: 'Content_1', name: 'content_1', widget: 'markdown' }
           - { label: 'Content_2', name: 'content_2', widget: 'markdown' }
-  - label: "Dreams"
-    name: "pages"
-    format: 'json'
-    files:
-      - label: "Dream Entry"
-        name: "dreams"
-        file: 'resources/nuxt/assets/content/dreams.json'
+  - label: "Dream Entry"
+    name: "dreams"
+    file: 'resources/nuxt/assets/content/dreams.json'
+    fields:
+      - label: Entry
+        name: entry
+        widget: list
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Type, name: type, widget: string}
-          - label: Entry
-            name: entry
-            widget: list
-            fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
-              - { label: 'Content', name: 'content', widget: 'markdown' } 
-              - { label: 'Author', name: 'author', widget: 'string' }         
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+          - { label: 'Content', name: 'content', widget: 'markdown' } 
+          - { label: 'Author', name: 'author', widget: 'string' }         
 
     
