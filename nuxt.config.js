@@ -14,6 +14,13 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  modules: [
+    '@nuxtjs/markdownit'
+  ],
+  markdownit: {
+    injected: true
+  },
   
   /*
   ** Customize the progress-bar color

@@ -24,8 +24,10 @@ collections:
           - { label: 'Link_2', name: 'link_2', widget: 'string' }
   - label: "Dream"
     name: "dream"
-    folder: "_posts/dream"
+    folder: "resources/nuxt/assets/content/"
     create: true
+    format: 'json'
+    extension: 'json'
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "markdown"}

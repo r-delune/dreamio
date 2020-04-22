@@ -2,11 +2,17 @@
   <div class="container">   
     <div>
         <h1>Dreams</h1>
+<!-- 
+        <div class="row">      
+            <!-- <div v-for="(item, i) in dreams" :key="i"> -->
+              <!-- <div v-html="$md.render(dreams)"></div> -->
+            <!-- </div>
+        </div> -->
 
         <div class="row">      
             <div v-for="(item, i) in content" :key="i">
                 <div class='col'>
-                    <!-- <badge type="primary m-2" pill>{{ item }}</badge> -->
+                    
                     {{content }}
                     <div class='col mx-2'>
                         <h5>
@@ -41,6 +47,9 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+
+// import dreams from '_posts/dream/test.md'
+
 import { mapState } from 'vuex';
 export default {
   head() {
@@ -54,6 +63,11 @@ export default {
   },
   computed: {
     content () {
+       console.log('DREAM CONTENT')
+       console.log(this.$store.state.dreams.data)
+      return this.$store.state.dreams.data
+    },
+    dreams () {
        console.log('DREAM CONTENT')
        console.log(this.$store.state.dreams.data)
       return this.$store.state.dreams.data
