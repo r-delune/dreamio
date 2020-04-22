@@ -33,7 +33,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import Logo from '~/components/Logo.vue'
 import { mapState } from 'vuex';
@@ -42,6 +41,10 @@ export default {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
+  },
+  transition: {
+    name: 'test',
+    mode: 'out-in'
   },
   layout: 'default',
   components: {

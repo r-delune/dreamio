@@ -3,35 +3,29 @@
     <div>
         <h1>Dreams</h1>
         <!-- <h2>{{type}}</h2> -->
-        <h5>{{intro}}</h5>
-        <div class="row p-3">      
-            <div v-for="(item, i) in entries" :key="i">
-                <div class='col'>
-                    <div class='col mx-2'>
-                        <h5>
-                            {{ item.title }}
-                        </h5>
-                        <label>
-                            {{ item.content }}
-                        </label>
-                        <label>
-                            {{ item.author }}
-                        </label>
-                    </div>    
-                </div>              
-            </div>
+        <h5>{{intro}}</h5>   
+        <div  class="row p-3" v-for="(item, i) in entries" :key="i">
+            <div class='col'>
+                <div>        
+                  <h5>
+                      {{ item.title }}
+                  </h5>
+                </div>        
+                <div class='row'>
+                  <label>
+                      {{ item.content }}
+                  </label>
+                </div>        
+                <div class='row'>
+                  <label>
+                      <i>
+                        Author: {{ item.author }}
+                      </i>
+                  </label> 
+                </div>        
+            </div>              
         </div>
         <div class="row">  
-<!-- 
-              <span>
-                      Been before?
-                      <nuxt-link to="/">
-                          <a class="text-light text-center">                                      
-                              Back
-                          </a>
-                      </nuxt-link>
-              </span> -->
-
             <div class="links">
               <nuxt-link to="/">
                 <a
@@ -47,12 +41,8 @@
     </div>
 </div>
 </template>
-
 <script>
 import Logo from '~/components/Logo.vue'
-
-// import dreams from '_posts/dream/test.md'
-
 import { mapState } from 'vuex';
 export default {
   head() {
@@ -60,7 +50,11 @@ export default {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
   },
-  layout: 'default',
+  layout: 'default',  
+  transition: {
+    name: 'test',
+    mode: 'out-in'
+  },
   components: {
     Logo
   },
@@ -117,4 +111,5 @@ export default {
 .links {
   padding-top: 15px;
 }
+
 </style>

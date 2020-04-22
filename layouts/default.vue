@@ -4,29 +4,10 @@
           class="top-navbar flex flex-row align-center p-2 fixed w-full"
           style="z-index: 9001;"
           >
-          <!-- <div class="flex-grow">
-            
-                <a
-                  href="https://threejs.org/"
-                  target="_blank"
-                  class="button--green"
-                >
-                Some cool shit here
-              </a>
-            
-          </div> -->
-          <!-- <div class="flex-grow">
-            <router-link :to="{ name: 'About' }">
-              About
-            </router-link>
-          </div>
-          <div class="flex-grow">
-            <router-link :to="{ name: 'Contact' }">
-              Contact
-            </router-link>
-          </div> -->
         </nav>
-      <nuxt />
+        <transition name="slide-fade" mode="out-in">
+          <nuxt />
+        </transition>
     </div>
 </template>
 <style>
@@ -77,4 +58,19 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+  .slide-fade-enter-active {
+      transition: all .6s ease;
+  }
+  .slide-fade-leave-active {
+      transition: all .7s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to{
+      transform: translateX(10px);
+      opacity: 0;
+  }
+  .footer {
+      color: #525f7f;
+      border: none;
+  }
 </style>
