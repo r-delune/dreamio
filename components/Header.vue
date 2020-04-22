@@ -18,26 +18,5 @@
     .nav-item a:active{
         color: #b4b4b4;
     }
-    @media (max-width: 767px) {
-        .nav-list {
-            display: block;
-        }
-        .nav-item{
-            margin-top: 16px;
-            margin-bottom: 16px;
-        }
-    }
-    @media (min-width: 768px) {
-        .nav-list {
-            display: flex;
-        }
-    }
 
-    .li {
-        color: black;
-    }
-
-    .ul {
-        color: black;
-    }
 </style>

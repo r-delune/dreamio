@@ -1,5 +1,5 @@
 <template>
-   <img class="NuxtLogo" src="~/assets/sleep.png">
+   <img class="NuxtLogo spinner" src="~/assets/sleep.png">
   <!-- <svg class="NuxtLogo" width="245" height="180" viewBox="0 0 452 342" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fill-rule="evenodd">
       <path
@@ -24,6 +24,10 @@
   margin: auto;
 }
 
+.rotate {
+  animation: rotation 4s infinite linear;
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
@@ -32,4 +36,32 @@
     opacity: 1;
   }
 }
+
+.spinner {
+    display: block;
+    /* margin: 50px;
+    height: 28px;
+    width: 28px;     */
+    -webkit-animation: rotate 0.8s infinite linear !important;
+    -moz-animation: rotate .8s infinite linear !important;
+    animation: rotate 39.8s infinite linear !important;
+    /* border: 8px solid grey;
+    border-right-color: transparent;
+    border-radius: 50%; */
+    position:relative;
+}
+@-webkit-keyframes rotate {
+    0%    { transform: rotate(0deg); }
+    100%  { transform: rotate(360deg); }
+}
+@-moz-keyframes rotate {
+    0%    { transform: rotate(0deg); }
+    100%  { transform: rotate(360deg); }
+}
+@keyframes rotate {
+    0%    { transform: rotate(0deg); }
+    100%  { transform: rotate(360deg); }
+}
+
+
 </style>

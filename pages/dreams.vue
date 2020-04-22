@@ -1,32 +1,33 @@
 <template>
   <div class="container">   
     <div>
+        <logo />
         <h1>Dreams</h1>
         <!-- <h2>{{type}}</h2> -->
         <h5>{{intro}}</h5>   
-        <div  class="row p-3" v-for="(item, i) in entries" :key="i">
+        <div  class="row p-3 text-left" v-for="(item, i) in entries" :key="i">
             <div class='col'>
                 <div>        
                   <h5>
                       {{ item.title }}
                   </h5>
                 </div>        
-                <div class='row'>
+                <div class='row mx-2'>
                   <label>
                       {{ item.content }}
                   </label>
                 </div>        
-                <div class='row'>
+                <div class='row px-5'>
                   <label>
                       <i>
-                        Author: {{ item.author }}
+                        - {{ item.author }}
                       </i>
                   </label> 
                 </div>        
             </div>              
         </div>
         <div class="row">  
-            <div class="links">
+            <div class="links p-2">
               <nuxt-link to="/">
                 <a
                 href="/"

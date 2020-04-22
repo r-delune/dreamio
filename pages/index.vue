@@ -12,8 +12,8 @@
         <span>         
             <a
               href="/admin"
-              target="_blank"
-              class="button--green"
+              
+              class="button--grey"
             >
               {{ content.link_0.text }}
             </a>
@@ -22,7 +22,6 @@
           <nuxt-link to="/dreams">
             <a
               href="/dreams"
-              target="_blank"
               class="button--grey"
             >
               {{ content.link_2.text }}
@@ -90,4 +89,5 @@ export default {
 .links {
   padding-top: 15px;
 }
+
 </style>
