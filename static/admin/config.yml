@@ -28,7 +28,7 @@ collections:
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle Date", name: "subtitle", widget: "datetime"}
-      - {label: "Content", name: "content", widget: "image"}
-      - {label: "Author", name: "author", widget: "markdown"}
+      - {label: "Subtitle", name: "subtitle", widget: "markdown"}
+      - {label: "Content", name: "subtitle", widget: "markdown"}
+      - {label: "Author", name: "author", widget: "string"}
     
