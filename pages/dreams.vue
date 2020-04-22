@@ -6,7 +6,8 @@
         <div class="row">      
             <div v-for="(item, i) in content" :key="i">
                 <div class='col'>
-                    <badge type="primary m-2" pill>{{ item }}</badge>
+                    <!-- <badge type="primary m-2" pill>{{ item }}</badge> -->
+                    {{content }}
                     <div class='col mx-2'>
                         <h5>
                             {{ item.title }}
@@ -53,6 +54,8 @@ export default {
   },
   computed: {
     content () {
+       console.log('DREAM CONTENT')
+       console.log(this.$store.state.dreams.data)
       return this.$store.state.dreams.data
   },
   ...mapState('auth', ['loggedIn', 'user'])
