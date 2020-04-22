@@ -1,6 +1,15 @@
 {
-  "title": "test dream",
+  "title": "test dream 1",
   "subtitle": "test dream subtitle",
   "content": "test dream content",
-  "author": "brian"
+  "author": "brian",
+  "type": "test dream 1",
+  "entry": [
+    {
+      "title": "test dream 1",
+      "subtitle": "test dream 1",
+      "content": "test dream 1",
+      "author": "test dream 1"
+    }
+  ]
 }
