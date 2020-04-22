@@ -1,6 +1,6 @@
 {
-  "title": "ddd",
-  "intro": "ddd",
+  "title": "Dream Type",
+  "intro": "Paragraph about this type of dream",
   "team": [
     {
       "title": "vxcvdd",
@@ -26,10 +26,10 @@
       "author": "new dream"
     },
     {
-      "subtitle": "fds",
-      "content": "sdfsdfs",
-      "author": "sdf",
-      "title": "dsf"
+      "subtitle": "Test Dream Subtitle 1",
+      "content": "Test Dream Content 1",
+      "author": "Test Dream Author 1",
+      "title": "Test Dream Title 1"
     }
   ]
 }
