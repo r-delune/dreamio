@@ -1,9 +1,34 @@
 <template>
-  <div>
-    <nuxt />
-  </div>
+    <div>
+        <nav
+          class="top-navbar flex flex-row align-center p-2 fixed w-full"
+          style="z-index: 9001;"
+          >
+          <div class="flex-grow">
+            <!-- <router-link :to="{ name: 'Contact' }"> -->
+                <a
+                  href="https://threejs.org/"
+                  target="_blank"
+                  class="button--green"
+                >
+                Some cool shit here
+              </a>
+            <!-- </router-link> -->
+          </div>
+          <!-- <div class="flex-grow">
+            <router-link :to="{ name: 'About' }">
+              About
+            </router-link>
+          </div>
+          <div class="flex-grow">
+            <router-link :to="{ name: 'Contact' }">
+              Contact
+            </router-link>
+          </div> -->
+        </nav>
+      <nuxt />
+    </div>
 </template>
-
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

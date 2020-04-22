@@ -22,3 +22,17 @@ collections:
           - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
           - { label: 'Link_1', name: 'link_1', widget: 'string' }
           - { label: 'Link_2', name: 'link_2', widget: 'string' }
+  - label: 'Dreams Page'
+    name: 'dream'
+    format: 'json'
+    delete: false
+    files:
+      - label: 'Dream'
+        name: 'dream'
+        file: 'resources/nuxt/assets/content/dreams.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+          - { label: 'Content', name: 'content', widget: 'string' }
+          - { label: 'Author', name: 'author', widget: 'string' }
+    

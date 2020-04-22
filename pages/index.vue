@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container">   
     <div>
       <logo />
       <h1 class="title">
@@ -9,20 +9,23 @@
         {{ content.subtitle.text }}
       </h2>
       <div class="links">
-        <a
-          href="https://threejs.org/"
+          <a
+          href="/admin"
           target="_blank"
           class="button--green"
         >
-          {{ content.link_1.text }}
+          {{ content.link_0.text }}
         </a>
         <a
-          href="https://greensock.com/"
+          href="/dreams"
           target="_blank"
           class="button--grey"
         >
           {{ content.link_2.text }}
         </a>
+                    <!-- <router-link :to="{ name: 'Contact' }">
+              Contact
+            </router-link> -->
       </div>
     </div>
   </div>
@@ -37,6 +40,7 @@ export default {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
     };
   },
+  layout: 'default',
   components: {
     Logo
   },

@@ -1,14 +1,17 @@
 {
     "intro" : {
-        "text" : "dream.io"
+        "text" : "Dream Archive Yo"
     },
     "subtitle" : {
         "text" : "feed me ideas"
+    },
+    "link_0" : {
+        "text" : "Add a dream"
     },
     "link_1" : {
         "text" : "some cool shit here"
     },
     "link_2" : {
-        "text" : "and here"
+        "text" : "See the dreams..."
     }
 }

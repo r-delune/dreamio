@@ -1,0 +1,14 @@
+{
+    "title" : {
+        "text" : "Example title"
+    },
+    "subtitle" : {
+        "text" : "Example subtitle"
+    },
+    "content" : {
+        "text" : "Example content"
+    },
+    "author" : {
+        "text" : "Example author"
+    }
+}
