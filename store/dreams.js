@@ -1,3 +1,3 @@
 
-import data from '../assets/content/dreams.json'
+import data from '../site/content/dreams.json'
 export const state = () => ({ data })

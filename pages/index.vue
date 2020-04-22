@@ -9,23 +9,26 @@
         {{ content.subtitle.text }}
       </h2>
       <div class="links">
-          <a
-          href="/admin"
-          target="_blank"
-          class="button--green"
-        >
-          {{ content.link_0.text }}
-        </a>
-        <a
-          href="/dreams"
-          target="_blank"
-          class="button--grey"
-        >
-          {{ content.link_2.text }}
-        </a>
-                    <!-- <router-link :to="{ name: 'Contact' }">
-              Contact
-            </router-link> -->
+        <span>         
+            <a
+              href="/admin"
+              target="_blank"
+              class="button--green"
+            >
+              {{ content.link_0.text }}
+            </a>
+        </span>
+        <span>         
+          <nuxt-link to="/dreams">
+            <a
+              href="/dreams"
+              target="_blank"
+              class="button--grey"
+            >
+              {{ content.link_2.text }}
+            </a>
+          </nuxt-link>
+        </span>
       </div>
     </div>
   </div>

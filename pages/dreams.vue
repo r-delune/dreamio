@@ -2,18 +2,11 @@
   <div class="container">   
     <div>
         <h1>Dreams</h1>
-<!-- 
-        <div class="row">      
-            <!-- <div v-for="(item, i) in dreams" :key="i"> -->
-              <!-- <div v-html="$md.render(dreams)"></div> -->
-            <!-- </div>
-        </div> -->
-
-        <div class="row">      
-            <div v-for="(item, i) in content" :key="i">
+        <!-- <h2>{{type}}</h2> -->
+        <h5>{{intro}}</h5>
+        <div class="row p-3">      
+            <div v-for="(item, i) in entries" :key="i">
                 <div class='col'>
-                    
-                    {{content }}
                     <div class='col mx-2'>
                         <h5>
                             {{ item.title }}
@@ -21,17 +14,26 @@
                         <label>
                             {{ item.content }}
                         </label>
-                    </div>    
-                    <div class='col mx-2'>
                         <label>
                             {{ item.author }}
                         </label>
-                    </div> 
+                    </div>    
                 </div>              
             </div>
         </div>
-        <div class="row">      
+        <div class="row">  
+<!-- 
+              <span>
+                      Been before?
+                      <nuxt-link to="/">
+                          <a class="text-light text-center">                                      
+                              Back
+                          </a>
+                      </nuxt-link>
+              </span> -->
+
             <div class="links">
+              <nuxt-link to="/">
                 <a
                 href="/"
                 target="_blank"
@@ -39,6 +41,7 @@
                 >
                 Back
                 </a>
+              </nuxt-link>
             </div>
         </div>
     </div>
@@ -67,12 +70,18 @@ export default {
        console.log(this.$store.state.dreams.data)
       return this.$store.state.dreams.data
     },
-    dreams () {
+    type () {
+      return this.$store.state.dreams.data.title
+    },
+    intro () {
+      return this.$store.state.dreams.data.intro
+    },
+    entries () {
        console.log('DREAM CONTENT')
-       console.log(this.$store.state.dreams.data)
-      return this.$store.state.dreams.data
-  },
-  ...mapState('auth', ['loggedIn', 'user'])
+       console.log(this.$store.state.dreams.data.entry)
+      return this.$store.state.dreams.data.entry
+    },
+    ...mapState('auth', ['loggedIn', 'user'])
   },
 };
 </script>
