@@ -35,12 +35,11 @@ collections:
           - { label: 'Subtitle', name: 'subtitle', widget: 'markdown' }
           - { label: 'Content_1', name: 'content_1', widget: 'markdown' }
           - { label: 'Content_2', name: 'content_2', widget: 'markdown' }
-  - label: "Dream Entries"
+  - label: "Dreams"
     name: "pages"
     format: 'json'
-    create: true
     files:
-      - label: "Dreams"
+      - label: "Dream Entry"
         name: "dreams"
         file: 'resources/nuxt/assets/content/dreams.json'
         fields:
