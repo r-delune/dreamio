@@ -1,6 +1,15 @@
-title: TEST DREAM TYPE 2
+title: TEST DREAM TYPE 4
 intro: TEST DREAM TYPE 2
 team:
   - title: TEST DREAM TYPE 3
-    subtitle: TEST DREAM TYPE 3
+    subtitle: TEST DREAM TYPE 3TEST DREAM TYPE 3
     author: TEST DREAM TYPE 3
+  - author: TEST DREAM TYPE 3TEST DREAM TYPE 3
+    subtitle: TEST DREAM TYPE 3
+    title: TEST DREAM TYPE 3
+  - subtitle: TEST DREAM TYPE 3
+    author: TEST DREAM TYPE 3
+    title: TEST DREAM TYPE 3
+  - subtitle: TEST DREAM TYPE 3
+    author: TEST DREAM TYPE 3
+    title: TEST DREAM TYPE 3
