@@ -1,3 +1,5 @@
+import pkg from './package'
+
 export default {
   mode: 'spa',
   /*
@@ -12,6 +14,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'js/three.min.js' },
+      { src: 'js/p5.min.js' },
     ]
   },
 
@@ -24,8 +30,7 @@ export default {
 
   modules: [
     '@nuxtjs/markdownit',
-    "@nuxtjs/pwa",
-    '@nuxtjs/bootstrap-vue'
+    "@nuxtjs/pwa"
   ],
   markdownit: {
     injected: true
@@ -43,7 +48,8 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
+ plugins: [
+    {src: "~/plugins/three", mode: "client"}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,12 +60,10 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration
@@ -70,11 +74,12 @@ export default {
   /*
   ** Build configuration
   */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
+ build: {
+  transpile: ['GLTFLoader.js', 'OrbitControls.js', 'TransformControls.js'],
+  /*
+  ** You can extend webpack config here
+  */
+  extend(config, ctx) {
   }
+}
 }

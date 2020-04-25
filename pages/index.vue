@@ -28,6 +28,16 @@
             </a>
           </nuxt-link>
         </span>
+                <span>         
+          <nuxt-link to="/test">
+            <a
+              href="/test"
+              class="button--grey"
+            >
+             test
+            </a>
+          </nuxt-link>
+        </span>
       </div>
     </div>
   </div>
